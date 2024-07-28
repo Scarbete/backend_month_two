@@ -1,12 +1,14 @@
 
 class Figure:
     """
-    unit - (единица измерения величин)
+    Базовый класс для фигур
+    Атрибуты:
+    unit: единица измерения величин (по умолчанию 'см')
     """
-    unit = 'см'
+    unit = 'см'  # Атрибут класса
 
     def __init__(self):
-        self.__perimeter = 0
+        self.__perimeter = 0  # Приватный атрибут
 
     @property
     def perimetr(self):
@@ -18,43 +20,39 @@ class Figure:
 
     def calculate_area(self):
         """
-        (подсчет площади фигуры)
-        :return:
+        Метод для подсчета площади фигуры
         """
-        pass
+        raise NotImplementedError('Этот метод должен быть переопределен в подклассах')
 
     def calculate_perimeter(self):
         """
-        (подсчет периметра фигуры)
-        :return:
+        Метод для подсчета периметра фигуры
         """
-        pass
+        raise NotImplementedError('Этот метод должен быть переопределен в подклассах')
 
     def info(self):
         """
-        (вывод полной информации о фигуре)
-        :return:
+        Метод для вывода полной информации о фигуре
         """
-        pass
+        raise NotImplementedError("Этот метод должен быть переопределен в подклассах")
 
 
 class Square(Figure):
     """
-    __side_length - (длина одной стороны квадрата)
+    Класс для квадрата, наследуется от Figure
+    Атрибуты:
+    __side_length: длина стороны квадрата
     """
     def __init__(self, side_length):
         super().__init__()
         self.__side_length = side_length
-        self.perimetr = self.calculate_perimeter()
+        self.perimetr = self.calculate_perimeter()  # Устанавливаем периметр при инициализации
 
     def calculate_perimeter(self):
-        square_sides_count = 4
-        square_perimeter = self.__side_length * square_sides_count
-        return square_perimeter
+        return self.__side_length * 4
 
     def calculate_area(self):
-        square_area = self.__side_length * self.__side_length
-        return square_area
+        return self.__side_length ** 2
 
     def info(self):
         print(
@@ -66,22 +64,22 @@ class Square(Figure):
 
 class Rectangle(Figure):
     """
-    length: (длина)
-    width: (ширина)
+    Класс для прямоугольника, наследуется от Figure
+    Атрибуты:
+    __length: длина прямоугольника
+    __width: ширина прямоугольника
     """
     def __init__(self, length, width):
         super().__init__()
         self.__length = length
         self.__width = width
-        self.perimetr = self.calculate_perimeter()
+        self.perimetr = self.calculate_perimeter()  # Устанавливаем периметр при инициализации
 
     def calculate_area(self):
-        result = (self.__width * self.__length)
-        return result
+        return self.__width * self.__length
 
     def calculate_perimeter(self):
-        result = (self.__width + self.__length) * 2
-        return result
+        return 2 * (self.__length + self.__width)
 
     def info(self):
         print(

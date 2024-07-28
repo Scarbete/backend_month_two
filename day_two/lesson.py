@@ -41,7 +41,7 @@ class Address:
 
 
 class Animal:
-    def __init__(self, name: str, age: int, address):
+    def __init__(self, name: str, age: int, address: Address):
         # age isinstance
         if isinstance(age, int) and age >= 0:
             self.__age = age
