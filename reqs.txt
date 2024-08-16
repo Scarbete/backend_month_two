@@ -1,0 +1,4 @@
+emoji==2.12.1
+python-decouple==3.8
+termcolor==2.0.1
+typing_extensions==4.12.2
