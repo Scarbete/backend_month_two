@@ -225,7 +225,10 @@ class AntMan(Hero):
             elif self.__size == 'large':
                 self.health += 50
                 self.damage = self.damage * 0.5
-                print(f'{self.name} вырастает до больших размеров, получая дополнительное здоровье, но нанося меньше урона')
+                print(
+                    f'{self.name} вырастает до больших размеров, '
+                    f'получая дополнительное здоровье, но нанося меньше урона'
+                )
 
     def attack(self, boss):
         """
@@ -296,9 +299,9 @@ def start_game():
     assistant = Medic(name='Swan', health=290, damage=5, heal_points=15)
     hacker = Hacker(name='Hacker', health=280, damage=10)
     thor = Thor(name='Thor', health=320, damage=20)
-    antMan = AntMan(name='AntMan', health=270, damage=10)
+    ant_man = AntMan(name='AntMan', health=270, damage=10)
 
-    heroes = [warrior, doc, magic, berserk, assistant, hacker, thor, antMan]
+    heroes = [warrior, doc, magic, berserk, assistant, hacker, thor, ant_man]
 
     print_statistick(boss, heroes)
 
